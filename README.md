@@ -19,7 +19,7 @@ Follow these steps to install this module into Gekko:
   * Change to the node_modules subdirectory within the gekko directory, e.g. ```cd node_modules/bitfinex``` (use a backslash instead if you're on Windows)
   * Compile the npm module with CoffeScript as follows: ```coffee -c bitfinex.coffee``` .  This should generate a file named ```bitfinex.js```.
 4. In the Gekko file ```exchanges.js```, add the following as the last entry in the array of exchanges:
-
+    ```
     {
       name: 'Bitfinex',
       slug: 'bitfinex',
@@ -35,16 +35,16 @@ Follow these steps to install this module into Gekko:
       requires: ['key', 'secret'],
       providesHistory: false
     }
-
+    ```
 5. In the Gekko file ```config.js```, edit the ```config.watch``` entry to look like this:
-
+    ```
     config.watch = {
       enabled: true,
       exchange: 'Bitfinex', // 'MtGox', 'BTCe', 'Bitstamp', 'cexio' or 'kraken'
       currency: 'USD',
       asset: 'BTC'
     }
-
+    ```
 6. Again in ```config.js```, ensure that trading is disabled in the ```config.trader``` section, as follows:
     config.trader = {
       enabled: false,
