@@ -7,18 +7,19 @@ Bitfinex exchange module for Gekko trading bot
 This module is designed to be used with [Gekko](https://github.com/askmike/gekko), but has not yet been integrated with it. 
 To install this module, you need the following prerequisites:
 
-1. An installed version of Gekko.
-2. An installed version of the node.js package manager ```npm```.
-3. An installed version of CoffeeScript, to be able to compile the [Bitfinex module](https://github.com/gferrin/bitfinex) from npm.
+1. An installed version of Gekko
+2. An installed version of the node.js package manager ```npm```
+3. An installed version of CoffeeScript, to be able to compile the [Bitfinex API module](https://github.com/gferrin/bitfinex) from npm
 
 Follow these steps to install this module into Gekko:
 
-1. Copy the file [bitfinex.js](https://raw.githubusercontent.com/antonivs/gekko-bitfinex/master/bitfinex.js) into gekko's ```exchanges``` subdirectory.
-2. Change to the main gekko directory and install the Bitfinex module from npm by running: ```npm install bitfinex```
+1. Copy the file [bitfinex.js](https://raw.githubusercontent.com/antonivs/gekko-bitfinex/master/bitfinex.js) into gekko's ```exchanges``` subdirectory.  
+This is the Gekko-specific wrapper for the Bitfinex API module.
+2. Change to the main gekko directory and install the Bitfinex API module from npm by running: ```npm install bitfinex```
 3. The above module is implemented in CoffeeScript and must be compiled to Javascript as follows:
-  * Change to the ```node_modules/bitfinex``` subdirectory within the gekko directory, e.g. ```cd node_modules/bitfinex``` (use a backslash instead if you're on Windows)
-  * Compile the npm module with CoffeScript as follows: ```coffee -c bitfinex.coffee```   This should generate a file named ```bitfinex.js``` in the ```node_modules/bitfinex``` subdirectory.
-4. In the Gekko file ```exchanges.js```, add the following as the last entry in the array of exchanges (don't forget to add a comma at the end of the prior entry):
+  * From the main gekko directory, change directory as follows: ```cd node_modules/bitfinex``` (use a backslash instead if you're on Windows)
+  * Compile the Bitfinex npm module using CoffeScript as follows: ```coffee -c bitfinex.coffee```   This should generate a file named ```bitfinex.js``` in the ```node_modules/bitfinex``` subdirectory.
+4. In the Gekko file ```exchanges.js```, add the following as the last entry in the array of exchanges (don't forget to add a comma after the prior entry):
 
     ```javascript
     {
