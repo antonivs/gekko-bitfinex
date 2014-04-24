@@ -4,8 +4,8 @@ Bitfinex exchange module for Gekko trading bot
 
 ## Installing
 
-This code is designed to be used with [Gekko](https://github.com/askmike/gekko), but has not yet been integrated.  
-To install it, you need the following prerequisites:
+This module is designed to be used with [Gekko](https://github.com/askmike/gekko), but has not yet been integrated with it. 
+To install this module, you need the following prerequisites:
 
 1. An installed version of Gekko.
 2. An installed version of the node.js package manager ```npm```.
@@ -19,7 +19,8 @@ Follow these steps to install this module into Gekko:
   * Change to the node_modules subdirectory within the gekko directory, e.g. ```cd node_modules/bitfinex``` (use a backslash instead if you're on Windows)
   * Compile the npm module with CoffeScript as follows: ```coffee -c bitfinex.coffee``` .  This should generate a file named ```bitfinex.js```.
 4. In the Gekko file ```exchanges.js```, add the following as the last entry in the array of exchanges:
-    ```
+
+    ```javascript
     {
       name: 'Bitfinex',
       slug: 'bitfinex',
@@ -36,8 +37,10 @@ Follow these steps to install this module into Gekko:
       providesHistory: false
     }
     ```
+
 5. In the Gekko file ```config.js```, edit the ```config.watch``` entry to look like this:
-    ```
+
+    ```javascript
     config.watch = {
       enabled: true,
       exchange: 'Bitfinex', // 'MtGox', 'BTCe', 'Bitstamp', 'cexio' or 'kraken'
@@ -45,9 +48,13 @@ Follow these steps to install this module into Gekko:
       asset: 'BTC'
     }
     ```
+
 6. Again in ```config.js```, ensure that trading is disabled in the ```config.trader``` section, as follows:
+
+    ```javascript
     config.trader = {
       enabled: false,
+    ```
 
 Once the above steps have been successfully completed, you should be able to run Gekko (i.e. ```node gekko```) and it should start retrieving data from Bitfinex.
 
