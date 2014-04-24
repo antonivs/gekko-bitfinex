@@ -16,9 +16,9 @@ Follow these steps to install this module into Gekko:
 1. Copy the file [bitfinex.js](https://raw.githubusercontent.com/antonivs/gekko-bitfinex/master/bitfinex.js) into gekko's ```exchanges``` subdirectory.
 2. Change to the main gekko directory and install the Bitfinex module from npm by running: ```npm install bitfinex```
 3. The above module is implemented in CoffeeScript and must be compiled to Javascript as follows:
-  * Change to the node_modules subdirectory within the gekko directory, e.g. ```cd node_modules/bitfinex``` (use a backslash instead if you're on Windows)
-  * Compile the npm module with CoffeScript as follows: ```coffee -c bitfinex.coffee``` .  This should generate a file named ```bitfinex.js```.
-4. In the Gekko file ```exchanges.js```, add the following as the last entry in the array of exchanges:
+  * Change to the ```node_modules/bitfinex``` subdirectory within the gekko directory, e.g. ```cd node_modules/bitfinex``` (use a backslash instead if you're on Windows)
+  * Compile the npm module with CoffeScript as follows: ```coffee -c bitfinex.coffee```   This should generate a file named ```bitfinex.js``` in the ```node_modules/bitfinex``` subdirectory.
+4. In the Gekko file ```exchanges.js```, add the following as the last entry in the array of exchanges (don't forget to add a comma at the end of the prior entry):
 
     ```javascript
     {
@@ -43,7 +43,7 @@ Follow these steps to install this module into Gekko:
     ```javascript
     config.watch = {
       enabled: true,
-      exchange: 'Bitfinex', // 'MtGox', 'BTCe', 'Bitstamp', 'cexio' or 'kraken'
+      exchange: 'Bitfinex',
       currency: 'USD',
       asset: 'BTC'
     }
@@ -56,15 +56,15 @@ Follow these steps to install this module into Gekko:
       enabled: false,
     ```
 
-Once the above steps have been successfully completed, you should be able to run Gekko (i.e. ```node gekko```) and it should start retrieving data from Bitfinex.
+Once the above steps have been successfully completed, you should be able to run Gekko (i.e. by executing ```node gekko```) and it should start retrieving data from Bitfinex.
 
 Trading should not be enabled until you have verified that watching the market and trading advice is working properly.
 
 ## Notes and caveats
 
 1. Use at your own risk. This module is currently only very lightly tested, and may still have undiscovered bugs.
-2. Margin trading is not currently supported.
-3. Only Bitcoin/USD trading is currently supported.  LiteCoin support is not yet implemented.
+2. Only Bitcoin/USD trading is currently supported.  LiteCoin support is not yet implemented.
+3. Margin trading is not currently supported.
 4. All orders placed are limit orders, which incur a 0.1% fee on Bitfinex.  Volume discounts on fees are not currently taken into account.
 5. Handling of partially filled orders may need work. Gekko says that they "should be treated as not filled."  However, limit orders on Bitfinex may never be completely filled, if the market price goes beyond the limit price before the order is filled.
 
